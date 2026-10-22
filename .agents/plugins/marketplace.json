@@ -1,14 +1,19 @@
 {
     "name": "plugin-catalog",
-    "version": "0.1.0",
-    "owner": {
-        "name": "prteek"
+    "interface": {
+        "displayName": "prteek plugin catalog"
     },
     "plugins": [
         {
             "name": "muse-dev",
-            "source": "./muse-dev",
-            "version": "0.1.0"
+            "source": {
+                "source": "local",
+                "path": "./muse-dev"
+            },
+            "policy": {
+                "installation": "AVAILABLE"
+            },
+            "category": "Productivity"
         }
     ]
 }
