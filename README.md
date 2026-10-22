@@ -6,9 +6,18 @@ Muse plugin catalog. Currently ships one plugin:
 
 ## Install
 
+From a local clone:
+
 ```bash
 git clone https://github.com/prteek/plugin-catalog.git
 muse plugins install ./plugin-catalog/muse-dev
+```
+
+Or straight from GitHub as a marketplace:
+
+```bash
+muse plugins marketplace add catalog https://github.com/prteek/plugin-catalog
+muse plugins install muse-dev@catalog
 ```
 
 ## Setup

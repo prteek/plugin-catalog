@@ -1,0 +1,12 @@
+{
+    "name": "plugin-catalog",
+    "owner": {
+        "name": "prteek"
+    },
+    "plugins": [
+        {
+            "name": "muse-dev",
+            "source": "./muse-dev"
+        }
+    ]
+}
