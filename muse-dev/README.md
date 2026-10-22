@@ -4,7 +4,7 @@ Developer utilities for Muse. Muse-native port of selected `da-dev` capabilities
 
 ## Version
 
-Current: `0.1.0`
+Current: `0.2.0`
 
 ## Features
 
@@ -15,6 +15,13 @@ Current: `0.1.0`
 | `project-docs` | Set up or update a minimal doc set (`README`, `summary`, `decisions`, `todolist`) for a project folder |
 | `duckdb` | Query CSV, Parquet, or DuckDB files locally or from URLs using SQL via the DuckDB CLI |
 | `plot` | Create terminal-based plots from data using YouPlot |
+
+### Commands
+
+| Command | Purpose |
+|---------|---------|
+| `show-commands` | Display the commands used for the previous output, ready to copy and re-run |
+| `copy-to-clipboard` | Copy previous results to the clipboard (tsv, csv, json, markdown) |
 
 ### Hooks
 
@@ -66,7 +73,10 @@ After querying with `/duckdb`, pipe to `/plot` for terminal visualisation. After
 ```
 muse-dev/
 ├── .muse-plugin/
-│   └── plugin.json          # Plugin manifest (version 0.1.0)
+│   └── plugin.json          # Plugin manifest (version 0.2.0)
+├── commands/
+│   ├── show-commands.md        # Repeat previous commands for copying
+│   └── copy-to-clipboard.md    # Copy results to clipboard (tsv/csv/json/markdown)
 ├── hooks/
 │   ├── teaching_sessionstart.py  # SessionStart: announce teaching questions
 │   └── teaching_pretooluse.py    # PreToolUse: gate git commit
@@ -78,6 +88,9 @@ muse-dev/
 ```
 
 ## Changelog
+
+### 0.2.0
+- Commands: `show-commands` and `copy-to-clipboard`, ported from the `da-dev` skills in the Bricklane `da.plugin-catalog` repo.
 
 ### 0.1.0
 - MotherDuck MCP server (`https://api.motherduck.com/mcp`, `MUSE_MOTHERDUCK_TOKEN` auth).
