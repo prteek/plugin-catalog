@@ -1,5 +1,6 @@
 {
     "name": "plugin-catalog",
+    "version": "0.1.0",
     "owner": {
         "name": "prteek"
     },
