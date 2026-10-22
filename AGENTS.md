@@ -6,10 +6,12 @@ For shared plugin/skill conventions, refer to `../../bricklane/da.plugin-catalog
 
 ## Layout
 
+- `.agents/plugins/marketplace.json` — marketplace catalog (Codex schema: `source` is `{"source": "local", "path": ...}`); keep its plugin `version` in sync with `plugin.json`.
 - `muse-dev/` — the plugin (Muse-native port of `da-dev` capabilities).
   - `skills/<name>/SKILL.md` — one skill per directory (`duckdb`, `plot`, `project-docs`).
+  - `commands/<name>.md` — Markdown command templates (`show-commands`, `copy-to-clipboard`); `$ARGUMENTS` receives the user's input.
   - `hooks/` — opt-in teaching-questions hooks (`teaching_sessionstart.py`, `teaching_pretooluse.py`).
-  - `.muse-plugin/plugin.json` — plugin manifest (name, version, skills, hooks, MCP servers).
+  - `.muse-plugin/plugin.json` — plugin manifest (name, version, skills, commands, hooks, MCP servers).
   - `README.md` — install, setup, usage, and changelog.
 
 ## Skills
@@ -26,4 +28,4 @@ For shared plugin/skill conventions, refer to `../../bricklane/da.plugin-catalog
 
 ## Versioning
 
-- Same impact-based semver as the referenced catalog: `0.0.x` fixes/docs only, `0.x.0` new skills/servers (backward-compatible), `x.0.0` breaking changes (delete/rename/workflow change). Current version `0.1.0` in `.muse-plugin/plugin.json` and `muse-dev/README.md`.
+- Same impact-based semver as the referenced catalog: `0.0.x` fixes/docs only, `0.x.0` new skills/servers (backward-compatible), `x.0.0` breaking changes (delete/rename/workflow change). Current version `0.2.0` in `.muse-plugin/plugin.json`, `.agents/plugins/marketplace.json`, and `muse-dev/README.md`.
