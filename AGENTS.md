@@ -1,13 +1,11 @@
 # AGENTS.md
 
 This repo is a Muse-native plugin catalog (see `muse-dev/README.md`).
-For shared plugin/skill conventions, refer to `../../bricklane/da.plugin-catalog/CLAUDE.md`
-(repository overview, skill scope, marketplace, versioning rationale).
 
 ## Layout
 
 - `.agents/plugins/marketplace.json` — marketplace catalog (Codex schema: `source` is `{"source": "local", "path": ...}`); keep its plugin `version` in sync with `plugin.json`.
-- `muse-dev/` — the plugin (Muse-native port of `da-dev` capabilities).
+- `muse-dev/` — the developer-utilities plugin.
   - `skills/<name>/SKILL.md` — one skill per directory (`duckdb`, `plot`, `project-docs`).
   - `commands/<name>.md` — Markdown command templates (`show-commands`, `copy-to-clipboard`); `$ARGUMENTS` receives the user's input.
   - `hooks/` — opt-in teaching-questions hooks (`teaching_sessionstart.py`, `teaching_pretooluse.py`).
@@ -16,7 +14,7 @@ For shared plugin/skill conventions, refer to `../../bricklane/da.plugin-catalog
 
 ## Skills
 
-- Follow `SKILL.md` frontmatter convention (`name`, `description`): see referenced `CLAUDE.md` “Adding a New Skill” and “Managing Skill Documentation”.
+- Follow `SKILL.md` frontmatter convention (`name`, `description`).
 - Keep skill scope narrow — one domain/workflow per skill.
 - Reference guides vs. executable tools: document when/how Claude should invoke the skill (e.g. `duckdb` always with `-csv` output; `plot` requires `-d,` CSV input and `-H` for headers).
 - After adding `muse-dev/skills/<name>/SKILL.md`, register it in `.muse-plugin/plugin.json` under `capabilities.skills` with `path: "skills/<name>/SKILL.md"`.
@@ -28,4 +26,4 @@ For shared plugin/skill conventions, refer to `../../bricklane/da.plugin-catalog
 
 ## Versioning
 
-- Same impact-based semver as the referenced catalog: `0.0.x` fixes/docs only, `0.x.0` new skills/servers (backward-compatible), `x.0.0` breaking changes (delete/rename/workflow change). Current version `0.2.0` in `.muse-plugin/plugin.json`, `.agents/plugins/marketplace.json`, and `muse-dev/README.md`.
+- Impact-based semver: `0.0.x` fixes/docs only, `0.x.0` new skills/servers (backward-compatible), `x.0.0` breaking changes (delete/rename/workflow change). Current version `0.2.0` in `.muse-plugin/plugin.json`, `.agents/plugins/marketplace.json`, and `muse-dev/README.md`.

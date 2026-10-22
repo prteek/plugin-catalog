@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Teaching questions hook (PreToolUse) for the muse-dev plugin.
 
-Muse-native port of da-dev's teaching_questions.py. When the user has opted
+When the user has opted
 in, blocks a `git commit` run by Muse until the user passes the questions.
 One pass allows one commit. Commits typed in a terminal are not checked.
 

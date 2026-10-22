@@ -1,6 +1,6 @@
 # muse-dev Plugin
 
-Developer utilities for Muse. Muse-native port of selected `da-dev` capabilities.
+Developer utilities for Muse.
 
 ## Version
 
@@ -90,7 +90,7 @@ muse-dev/
 ## Changelog
 
 ### 0.2.0
-- Commands: `show-commands` and `copy-to-clipboard`, ported from the `da-dev` skills in the Bricklane `da.plugin-catalog` repo.
+- Commands: `show-commands` and `copy-to-clipboard`.
 
 ### 0.1.0
 - MotherDuck MCP server (`https://api.motherduck.com/mcp`, `MUSE_MOTHERDUCK_TOKEN` auth).

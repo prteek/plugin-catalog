@@ -2,7 +2,7 @@
 
 Muse plugin catalog. Currently ships one plugin:
 
-- [`muse-dev`](muse-dev/README.md) — developer utilities for Muse (Muse-native port of `da-dev`): `duckdb`, `plot`, and `project-docs` skills, `show-commands` and `copy-to-clipboard` commands, opt-in teaching-questions hooks, and a MotherDuck MCP server.
+- [`muse-dev`](muse-dev/README.md) — developer utilities for Muse: `duckdb`, `plot`, and `project-docs` skills, `show-commands` and `copy-to-clipboard` commands, opt-in teaching-questions hooks, and a MotherDuck MCP server.
 
 ## Install
 

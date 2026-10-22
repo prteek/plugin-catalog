@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Teaching questions hook (SessionStart) for the muse-dev plugin.
 
-Muse-native port of da-dev's teaching_questions.py. When the user has opted
+When the user has opted
 in, tells Muse that teaching questions are on and gives it the session id
 used for the marker files.
 
