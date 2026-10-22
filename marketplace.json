@@ -7,7 +7,8 @@
     "plugins": [
         {
             "name": "muse-dev",
-            "source": "./muse-dev"
+            "source": "./muse-dev",
+            "version": "0.1.0"
         }
     ]
 }
