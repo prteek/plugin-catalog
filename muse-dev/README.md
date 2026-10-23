@@ -4,7 +4,7 @@ Developer utilities for Muse.
 
 ## Version
 
-Current: `0.2.0`
+Current: `0.4.0`
 
 ## Features
 
@@ -34,6 +34,10 @@ Teaching questions: on
 - **SessionStart:** tells Muse teaching questions are on and gives it the session id.
 - **PreToolUse (Bash):** blocks a `git commit` run by Muse until the user passes. One pass allows one commit. Commits typed in a terminal are not checked.
 - Say "teaching questions off" or "on" to switch for the current session. Markers live in `~/.muse/teaching-questions/`, so nothing is written into the repo.
+
+The quarto-venv hook is always on: it blocks any `quarto ...` command run by Muse unless a Python virtual environment is active (`VIRTUAL_ENV` set). That env is assumed to have all necessary dependencies installed — generally the `.venv` in the working directory, so run `source .venv/bin/activate` before rendering.
+
+The version-bump hook is always on: it blocks a `git push` run by Muse when the pushed range adds `skills/`, `commands/`, `hooks/`, or `.muse-plugin/` changes on top of the deployed version (`origin/main` on GitHub) without a version bump — commit the bump first, then re-push. Once the version is bumped ahead of main, further changes ride along with no re-increment. Docs-only and other non-functional changes pass through — they don't require users to update the plugin, so they need no bump.
 
 ### MCP Servers
 
@@ -73,13 +77,18 @@ After querying with `/duckdb`, pipe to `/plot` for terminal visualisation. After
 ```
 muse-dev/
 ├── .muse-plugin/
-│   └── plugin.json          # Plugin manifest (version 0.2.0)
+│   └── plugin.json          # Plugin manifest (version 0.4.0)
 ├── commands/
 │   ├── show-commands.md        # Repeat previous commands for copying
 │   └── copy-to-clipboard.md    # Copy results to clipboard (tsv/csv/json/markdown)
 ├── hooks/
 │   ├── teaching_sessionstart.py  # SessionStart: announce teaching questions
-│   └── teaching_pretooluse.py    # PreToolUse: gate git commit
+│   ├── teaching_pretooluse.py    # PreToolUse: gate git commit
+│   ├── quarto_venv_pretooluse.py # PreToolUse: require active venv for quarto
+│   └── version_bump_pretooluse.py # PreToolUse: require version bump for functional changes
+├── tests/
+│   ├── test_quarto_venv_hook.py  # Checks for the quarto venv gate
+│   └── test_version_bump_hook.py # Checks for the version-bump gate
 ├── skills/
 │   ├── analysis-project-docs/
 │   ├── duckdb/
@@ -88,6 +97,12 @@ muse-dev/
 ```
 
 ## Changelog
+
+### 0.4.0
+- Version-bump hook (`PreToolUse` on `git push`): blocks the push when the pushed range adds functional changes (`skills/`, `commands/`, `hooks/`, `.muse-plugin/`) on top of the deployed `origin/main` version without a version bump; no re-increment once the version is ahead of main, and docs-only changes pass through. Checks in `muse-dev/tests/test_version_bump_hook.py`. Versioning policy (AGENTS.md): bumps only for functional changes, never for docs-only edits.
+
+### 0.3.0
+- Quarto-venv hook (`PreToolUse`): blocks Muse-run `quarto` commands unless a Python virtual environment is active (generally `.venv` in the working directory). Checks in `muse-dev/tests/test_quarto_venv_hook.py`.
 
 ### 0.2.0
 - Commands: `show-commands` and `copy-to-clipboard`.

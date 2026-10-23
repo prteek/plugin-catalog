@@ -6,7 +6,7 @@
     "plugins": [
         {
             "name": "muse-dev",
-            "version": "0.2.0",
+            "version": "0.4.0",
             "source": {
                 "source": "local",
                 "path": "./muse-dev"

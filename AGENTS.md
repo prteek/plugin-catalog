@@ -26,4 +26,4 @@ This repo is a Muse-native plugin catalog (see `muse-dev/README.md`).
 
 ## Versioning
 
-- Impact-based semver: `0.0.x` fixes/docs only, `0.x.0` new skills/servers (backward-compatible), `x.0.0` breaking changes (delete/rename/workflow change). Current version `0.2.0` in `.muse-plugin/plugin.json`, `.agents/plugins/marketplace.json`, and `muse-dev/README.md`.
+- Impact-based semver, bumped only for functional changes: `0.0.x` fixes, `0.x.0` new skills/commands/hooks/servers (backward-compatible), `x.0.0` breaking changes (delete/rename/workflow change). Docs-only and other non-functional changes need no version bump (enforced by the `version-bump` PreToolUse hook, which blocks `git push` when the pushed range adds `muse-dev/skills/`, `muse-dev/commands/`, `muse-dev/hooks/`, or `muse-dev/.muse-plugin/` changes on top of the deployed `origin/main` version without a version bump — no re-increment once the version is already ahead of main). Keep the plugin `version` in sync in `.muse-plugin/plugin.json`, `.agents/plugins/marketplace.json`, and `muse-dev/README.md`.
